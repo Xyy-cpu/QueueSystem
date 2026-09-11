@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 
 namespace QueueSystem
 {
@@ -8,7 +9,7 @@ namespace QueueSystem
         private int x;
 
         public static string getNumberInQueue = "";
-
+        public static string Serving = "---";
         public static Queue<string> CashierQueue;
 
         public CashierClass()

@@ -23,10 +23,8 @@ namespace QueueSystem
         }
         private void btnList_Click(object sender, EventArgs e) 
         {
-            this.Hide();
             CashierWindowQueueForm cashierWindow = new CashierWindowQueueForm();
             cashierWindow.Show();
-
             
         }
 
