@@ -73,7 +73,7 @@
             btnList.TabIndex = 3;
             btnList.Text = "To Cashier";
             btnList.UseVisualStyleBackColor = true;
-            btnList.Click += this.btnList_Click;
+            btnList.Click += btnList_Click;
             // 
             // QueuingForm
             // 

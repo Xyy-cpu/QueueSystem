@@ -15,13 +15,27 @@ namespace QueueSystem
         public CashierWindowQueueForm()
         {
             InitializeComponent();
+            ServingForm = new ServingForm();
+            ServingForm.Show();
         }
+
+        private ServingForm ServingForm;
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             DisplayCashierQueue(CashierClass.CashierQueue);
         }
-        public void DisplayCashierQueue(IEnumerable<string> CashierList)
+       
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (CashierClass.CashierQueue.Count > 0)
+            {
+                CashierClass.Serving = CashierClass.CashierQueue.Dequeue();
+                DisplayCashierQueue(CashierClass.CashierQueue);
+                ServingForm.ServingUpdate();
+            }
+        }
+         public void DisplayCashierQueue(IEnumerable<string> CashierList)
         {
             listCashierQueue.Items.Clear();
 
@@ -33,15 +47,6 @@ namespace QueueSystem
         private void timer1_Tick(object sender, EventArgs e)
         {
             DisplayCashierQueue(CashierClass.CashierQueue);
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            if (CashierClass.CashierQueue.Count > 0)
-            {
-                CashierClass.CashierQueue.Dequeue();
-                DisplayCashierQueue(CashierClass.CashierQueue);
-            }
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
